@@ -1,12 +1,12 @@
-var express = require('express');
-var app = express();
+const images = require('./routes/images');
+const videos = require('./routes/videos');
+const audio = require('./routes/audio');
+const express = require('express');
+const app = express();
 
 app.use(express.static('public'));
+app.use('/api/images', images);
+app.use('/api/videos', videos);
+app.use('/api/audio', audio);
 
-//Serves all the request which includes /images in the url from Images folder
-app.use('/images', express.static(__dirname + '/Images'));
-app.use('/audios', express.static(__dirname + '/audios'));
-app.use('/html', express.static(__dirname + '/html'));
-app.use('/videos', express.static(__dirname + '/videos'));
-
-var server = app.listen(5000, () => console.log('abc'));
+app.listen(5000, () => console.log('Listening on port 5000...'))
