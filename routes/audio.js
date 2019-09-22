@@ -29,6 +29,7 @@ const upload = multer({
 });
 
 router.post('/', upload.single('audio'), (req, res) => {
+    console.log(req.file);
     if (req.file) {
         res.send({ successfull: true, error: false })
     } else {
