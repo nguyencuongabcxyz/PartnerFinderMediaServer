@@ -31,7 +31,7 @@ const upload = multer({
 router.post('/', upload.single('video'), (req, res) => {
     try {
         if (req.file) {
-            res.send({ successfull: true, error: false })
+            res.send({ successfull: true, error: false, name: req.file.filename })
         } else {
             res.send({ successfull: false, error: true })
         }
