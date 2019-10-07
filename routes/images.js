@@ -34,10 +34,6 @@ router.get('/', (req, res) => {
 
 router.post('/', upload.single('image'), (req, res) => {
     if (req.file) {
-<<<<<<< HEAD
-        console.log(req.file);
-=======
->>>>>>> e9c0853911ab2d3c39510803e75446fff0a0515a
         res.send({ successfull: true, error: false, name: req.file.filename })
     } else {
         res.send({ successfull: false, error: true })
